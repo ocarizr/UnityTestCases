@@ -2,7 +2,7 @@
 
 public class PlayerController : MonoBehaviour
 {
-    public float MoveSpeed;
+    public float SpeedOfMovement;
 
     public float SpeedH = 2.0f;
     public float SpeedV = 2.0f;
@@ -13,30 +13,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime, Space.Self);
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.left * MoveSpeed * Time.deltaTime, Space.Self);
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.back * MoveSpeed * Time.deltaTime, Space.Self);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * MoveSpeed * Time.deltaTime, Space.Self);
-        }
-        else if (Input.GetKey(KeyCode.Q))
-        {
-            transform.Translate(Vector3.up * MoveSpeed * Time.deltaTime, Space.Self);
-        }
-        else if (Input.GetKey(KeyCode.E))
-        {
-            transform.Translate(Vector3.down * MoveSpeed * Time.deltaTime, Space.Self);
-        }
+        float movement = SpeedOfMovement * Time.deltaTime;
+        // Forward or Backward
+        if (Input.GetKey(KeyCode.W)) transform.Translate(Vector3.forward * movement, Space.Self);
+        else if (Input.GetKey(KeyCode.S)) transform.Translate(Vector3.back * movement, Space.Self);
+        // Left or Right
+        if (Input.GetKey(KeyCode.A)) transform.Translate(Vector3.left * movement, Space.Self);
+        else if (Input.GetKey(KeyCode.D)) transform.Translate(Vector3.right * movement, Space.Self);
+        // Up or down
+        if (Input.GetKey(KeyCode.Q)) transform.Translate(Vector3.up * movement, Space.Self);
+        else if (Input.GetKey(KeyCode.E)) transform.Translate(Vector3.down * movement, Space.Self);
 
         _yaw += SpeedH * Input.GetAxis("Mouse X");
         _pitch -= SpeedV * Input.GetAxis("Mouse Y");

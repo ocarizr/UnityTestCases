@@ -9,7 +9,7 @@ namespace Assets.Scripts.MagnifyingTestScripts.CameraController
 
         public Transform Player;
 
-        [SerializeField] [Range(MinSpeed, MaxSpeed)] private readonly float _smoothSpeed = MinSpeed;
+        [SerializeField] [Range(MinSpeed, MaxSpeed)] private float _smoothSpeed = MinSpeed;
         private Quaternion _lookRotation;
 
         // Update is called once per frame

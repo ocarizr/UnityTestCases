@@ -29,7 +29,7 @@ namespace Assets.Scripts.MagnifyingTestScripts
             _yaw += SpeedH * Input.GetAxis("Mouse X");
             _pitch -= SpeedV * Input.GetAxis("Mouse Y");
 
-            transform.eulerAngles = new Vector3(_pitch, _yaw, 0.0f);
+            transform.eulerAngles = new Vector3(_pitch, _yaw + 180, 0.0f);
         }
     }
 }

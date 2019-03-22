@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.TouchInput_Scripts
 {
     public class TouchInput : MonoBehaviour
     {
